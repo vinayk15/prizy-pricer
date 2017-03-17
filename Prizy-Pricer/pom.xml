@@ -1,15 +1,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.prizy</groupId>
-  <artifactId>Prizy-Pricer</artifactId>
-  <packaging>war</packaging>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>Prizy-Pricer Maven Webapp</name>
-  <url>http://maven.apache.org</url>
-  
-  
-  <properties>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.prizy</groupId>
+	<artifactId>Prizy-Pricer</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Prizy-Pricer Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+
+
+	<properties>
 		<java-version>1.7</java-version>
 		<spring.version>4.0.3.RELEASE</spring.version>
 		<hibernate.version>4.3.6.Final</hibernate.version>
@@ -19,8 +19,13 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
+			<version>4.11</version>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.10.19</version>
 		</dependency>
 
 		<dependency>
@@ -82,27 +87,7 @@
 			<artifactId>commons-pool</artifactId>
 			<version>1.4</version>
 		</dependency>
-
-
-
-
 	</dependencies>
-	<build>
-		<finalName>simple-project</finalName>
-		<plugins>
 
-
-			<plugin>
-				<groupId>org.eclipse.jetty</groupId>
-				<artifactId>jetty-maven-plugin</artifactId>
-				<version>9.0.5.v20130815</version>
-				<configuration>
-
-					<scanIntervalSeconds>3</scanIntervalSeconds>
-				</configuration>
-			</plugin>
-
-		</plugins>
-	</build>
 </project>
 
