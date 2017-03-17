@@ -89,5 +89,8 @@
 		</dependency>
 	</dependencies>
 
+	<build>
+		<finalName>Prizy-Pricer</finalName>
+	</build>
 </project>
 
