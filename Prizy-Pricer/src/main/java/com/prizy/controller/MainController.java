@@ -17,21 +17,21 @@ public class MainController {
 	@Autowired
 	ProductService productService;
 
-	@RequestMapping(value = "/welcome")
+	@RequestMapping(value = "/productloader")
 	public String welcome(Model model) {
 		model.addAttribute("product", new Product());
 		return "product";
 
 	}
 
-	@RequestMapping(value = "/save")
+	@RequestMapping(value = "/saveproduct")
 	public String productLoadder(Product product) {
 		productService.productloader(product);
 
 		return "sucessProduct";
 	}
 
-	@RequestMapping(value = "/productList")
+	@RequestMapping(value = "/admin/productList")
 	public String productList(Model model) {
 
 		model.addAttribute("listproduct", productService.productList());
@@ -39,26 +39,33 @@ public class MainController {
 		return "listProduct";
 	}
 
-	@RequestMapping("/view/{barcode}")
+	@RequestMapping("admin/view/{barcode}")
 	public String getProduct(@PathVariable("barcode") int barcode, Model model) {
 		System.out.println(barcode);
 
 		List<Product> products = productService.getProduct(barcode);
+		model.addAttribute("listproduct", products);
+
 		model.addAttribute("barcode", barcode);
+
 		model.addAttribute("desc", products.get(0).getDescription());
+
 		model.addAttribute("number", products.size());
+
 		model.addAttribute("minimum", products.get(0).getPrice());
+
 		model.addAttribute("maximum", products.get(products.size() - 1).getPrice());
 
 		double avgprice = getaverage(products);
 		model.addAttribute("averageProduct", avgprice);
 
+		// Ideal Price Logic
 		if (products.size() > 4) {
 			List<Product> list = products.subList(2, products.size() - 2);
 
 			double idealavg = getaverage(list);
 			double idealprice = (idealavg * 20) / 100 + idealavg;
-			model.addAttribute("idelprice", idealprice);
+			model.addAttribute("idealprice", idealprice);
 
 			System.out.println(products);
 

@@ -9,7 +9,7 @@
 <title>Product Add</title>
 </head>
 <body>
-<form:form action="save" modelAttribute="product" method="Post">
+<form:form action="saveproduct" modelAttribute="product" method="Post">
 
 <table>
 			<tr>

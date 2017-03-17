@@ -11,46 +11,41 @@
 <title>List Product</title>
 </head>
 <body>
-<form:form action="list" modelAttribute="listproduct">
+	
 
-<h1>List of Product</h1>
+		<h1>List of Product</h1>
 
- <table>
-            <thead>
-               <tr>
-                  <th width="4%">S.N</th>
-                  <th width="15%">Store</th>
-                  <th width="15%">Bar Code</th>
-                  <th width="15%">Decripatin</th>
-                  <th width="15%">Price</th>
-                  <th width="15%">Notes</th>
-                  
-               </tr>
-            </thead>
-            <tbody>
-            <c:forEach items="${listproduct}" var="product" varStatus="loopconter">
-            
-            <tr>
-            <td><c:out value="${product.id}"></c:out></td>
-            
-            <td><c:out value="${product.store}"></c:out></td>
-           <td> <a href="view/${product.barcode}">View</a></td>
-            
-            	<td><c:out value="${product.barcode}"></c:out></td>
-            
-            <td><c:out value="${product.description}"></c:out></td>
-            <td><c:out value="${product.price}"></c:out></td>
-            <td><c:out value="${product.notes}"></c:out></td>
-            
-            </tr>
-            
-            </c:forEach>
+		<table border="5">
+			<thead>
+				<tr>
+					<th width="4%">S.N</th>
+					<th width="15%">Store</th>
+					<th width="15%">Bar Code</th>
+					<th width="15%">Description</th>
+					<th width="15%">Price</th>
+					<th width="15%">Notes</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach items="${listproduct}" var="product"
+					varStatus="loopconter">
+
+					<tr>
+						<td><c:out value="${loopconter.count}"></c:out></td>
+
+						<td><c:out value="${product.store}"></c:out></td>
+						<td><a href="view/${product.barcode}">${product.barcode}</a></td>
+						<td><c:out value="${product.description}"></c:out></td>
+						<td><c:out value="${product.price}"></c:out></td>
+						<td><c:out value="${product.notes}"></c:out></td>
+
+					</tr>
+
+				</c:forEach>
 
 
 
-</form:form>
-
-
-
+				</tbody></table>
 </body>
 </html>

@@ -3,7 +3,6 @@ package com.prizy.dao.impl;
 import java.util.List;
 
 import org.hibernate.Criteria;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
@@ -37,12 +36,10 @@ public class ProductDAOIMPL implements ProductDAO {
 	}
 
 	public void productloader(Product product) {
-		// TODO Auto-generated method stub
 		getSession().save(product);
 	}
 
 	public List<Product> productList() {
-		// TODO Auto-generated method stub
 		Criteria c = getSession().createCriteria(Product.class);
 		return c.list();
 	}
